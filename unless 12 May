@@ -1,0 +1,5 @@
+date_of_today= "13 May"
+unless date_of_today== "12 May"
+## use == for a conditional 
+print "Wrong Day"
+end
