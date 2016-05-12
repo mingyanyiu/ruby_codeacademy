@@ -1,0 +1,10 @@
+print "How old are you?"
+ur_age= gets.chomp.to_i
+my_age= 24
+if my_age< ur_age
+    print "hey! big brother!"
+elsif my_age > ur_age
+print "OCchh! my cute little brother"
+else 
+    print "you and me, me and you"
+end
