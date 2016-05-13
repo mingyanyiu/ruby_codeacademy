@@ -1,0 +1,68 @@
+#Hashes are sort of like JavaScript objects or Python dictionaries. If you haven't studied those languages, 
+#all you need to know that a hash is a collection of key-value pairs.
+
+#literal notation 
+my_hash = { "name" => "Eric",
+  "age" => 26,
+  "hungry?" => true
+}
+puts my_hash["name"]
+puts my_hash["age"]
+puts my_hash["hungry?"]
+
+#new.hash
+pet=Hash.new
+#output:{}
+#capital 
+H#set the my_hash["name"]="eric" in single hash setting  
+
+#print out every element in the array
+friends = ["Milhouse", "Ralph", "Nelson", "Otto"]
+family = { "Homer" => "dad",
+  "Marge" => "mom",
+  "Lisa" => "sister",
+  "Maggie" => "sister",
+  "Abe" => "grandpa",
+  "Santa's Little Helper" => "dog"
+}
+friends.each { |x| puts "#{x}" }
+family.each { |x, y| puts "#{x}: #{y}" }
+
+#print out every elements in language
+languages = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
+languages.each {|x| puts "#{x}"}
+
+#print out every elements in the sub_array in separate line inside s
+s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
+s.each do |sub_array|
+    sub_array.each do |y|
+        puts y
+    end
+end
+
+#print out evey element with a : and spaee in the hash
+secret_identities = {
+  "The Batman" => "Bruce Wayne",
+  "Superman" => "Clark Kent",
+  "Wonder Woman" => "Diana Prince",
+  "Freakazoid" => "Dexter Douglas"
+}
+
+secret_identities.each do |x,y|
+    puts "#{x}: #{y}"
+end
+
+#print out every elements int he key column
+lunch_order = {
+  "Ryan" => "wonton soup",
+  "Eric" => "hamburger",
+  "Jimmy" => "sandwich",
+  "Sasha" => "salad",
+  "Cole" => "taco"
+}
+lunch_order.each do |value, key|
+puts "#{key}"
+end
+
+
+
