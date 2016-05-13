@@ -35,6 +35,3 @@ strings.each do |s|
     symbols.push(s)
 end
 
-
-["HTML", "CSS", "JavaScript", "Python", "Ruby"]
-["HTML", "CSS", "JavaScript", "Python", "Ruby"] 
