@@ -1,0 +1,13 @@
+def alphabetize(arr, rev = false)
+    arr.sort! { |item1, item2| item1 <=> item2 }
+    if rev
+        arr.reverse!
+    end
+    arr
+    #= return arr
+end
+
+numbers = [42, 1816, 43, 141, 1680, 678, 244]
+alphabetize(numbers)
+puts(numbers)
+ 
