@@ -1,0 +1,49 @@
+#histogram is a visual presentation
+#creating a frequency hash
+#example
+puts "Text please: "
+text = gets.chomp
+
+words = text.split(" ")
+frequencies = Hash.new(0)
+words.each { |word| frequencies[word] += 1 }
+frequencies = frequencies.sort_by {|a, b| b }
+frequencies.reverse!
+frequencies.each {|word, frequency| puts word + " " + frequency.to_s }
+
+#tell me youe story please.
+#.split make passage into word
+
+puts "tell me your story pls"
+text=gets.chomp
+words=text.split 
+frequencies=Hash.new(0)
+#(0) is the value of frequrent 
+
+puts "tell me your story pls"
+text=gets.chomp
+words=text.split 
+frequencies=Hash.new(0)
+words.each {|word| frequencies [word] += 1}
+frequencies = frequencies.sort_by do |word,count|
+    count 
+end
+#reverse the array order so  largest counts are first.
+frequencies.reverse!
+
+#my final answer
+puts "tell me your story pls"
+text=gets.chomp
+words=text.split 
+frequencies=Hash.new(0)
+words.each {|word| frequencies [word] += 1}
+frequencies = frequencies.sort_by do |word,count|
+    count 
+end
+frequencies.reverse!
+#otherwise is count from smallest 
+frequencies.each do |word,count|
+    puts word +" "+ count.to_s
+end
+#output is to count each word in the text and count its frequencies and print it out on separeate line, order from largest frenquencies 
+
