@@ -11,10 +11,11 @@ puts my_hash["age"]
 puts my_hash["hungry?"]
 
 #new.hash
-pet=Hash.new
+pets=Hash.new
 #output:{}
 #capital 
-H#set the my_hash["name"]="eric" in single hash setting  
+pets["Stevie"] = "cat"
+#set the my_hash["name"]="eric" in single hash setting  
 
 #print out every element in the array
 friends = ["Milhouse", "Ralph", "Nelson", "Otto"]
