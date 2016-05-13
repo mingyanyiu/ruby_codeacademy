@@ -94,7 +94,6 @@ puts :symbol.object_id
 #Only one copy of any symbol exists at a given time, so they save memory;
 #Symbol-as-keys are faster than strings-as-keys because of the above two reasons.
 
-
 strings = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
 symbols=[]
 strings.each do |s|
@@ -102,3 +101,41 @@ strings.each do |s|
     symbols.push(s)
 end
 
+require 'benchmark'
+
+string_AZ = Hash[("a".."z").to_a.zip((1..26).to_a)]
+symbol_AZ = Hash[(:a..:z).to_a.zip((1..26).to_a)]
+
+string_time = Benchmark.realtime do
+  100_000.times { string_AZ["r"] }
+end
+
+symbol_time = Benchmark.realtime do
+  100_000.times { symbol_AZ[:r] }
+end
+
+puts "String time: #{string_time} seconds."
+puts "Symbol time: #{symbol_time} seconds."
+#output show run symbol quicker 
+
+#hash in Rudy1.9
+movie_ratings = {
+  memento: 3,
+  primer: 3.5,
+  the_matrix: 5,
+  truman_show: 4,
+  red_dawn: 1.5,
+  skyfall: 4,
+  alex_cross: 2,
+  uhf: 1,
+  lion_king: 3.5
+}
+
+#pritn key or value only
+my_hash = { one: 1, two: 2, three: 3 }
+
+my_hash.each_key { |k| print k, " " }
+# ==> one two three
+
+my_hash.each_value { |v| print v, " " }
+# ==> 1 2 3
