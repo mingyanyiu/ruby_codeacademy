@@ -1,0 +1,93 @@
+#conditional assignment operator: ||=
+favorite_book = nil
+puts favorite_book
+
+favorite_book ||= "Cat's Cradle"                                      #Cat's Cradle
+puts favorite_book
+
+favorite_book ||= "Why's (Poignant) Guide to Ruby"                    #Cat's Cradle
+puts favorite_book
+
+favorite_book = "Why's (Poignant) Guide to Ruby"                      #Why's (Poignant) Guide to Ruby
+puts favorite_book
+
+#define a method
+def method
+end
+
+#one line if that is even nu,ber in array 
+my_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+my_array.each { |x| puts x if x %2== 0}                              # {x%2 == 0}
+
+#print upto or downto in sequence 
+"L".upto("P") { |x| puts x}           #if "P".upto("L"), only print "P"
+
+# can't turn an array into a symbol
+
+#if the method can be called, returns true otherwise false
+age = 26
+age.respond_to?(:next)
+
+#concatenation operator
+[1, 2, 3] << 4
+# ==> [1, 2, 3, 4]
+
+alphabet = ["a", "b", "c"]
+alphabet<<("d")                                            #alphabet.push("d") 
+
+caption = "A giraffe surrounded by "
+caption <<= "weezards!"                                    #caption += "weezards!" 
+
+#for loop into .times method
+for i in (1..3)
+  puts "I'm a refactoring master!"
+end
+
+3.times { puts "I'm a refactoring master!" }
+
+#refactoring is the process by which we improve a code's structure, 
+#appearance, and/or performance without modifying its overall behavior
+
+ unless n.is_a? Integer
+ return "n must be an integer."
+  end
+if n <= 0
+ return "n must be greater than 0."
+  end
+#modified it into a one line 
+n.is_a? Integer unless "n must be an integer."
+n <= 0 if "n must be greater than 0."
+
+ for num in (1..n)
+    prime_array.push(prime.next)
+  end
+#modified it into a one line 
+prime_array.push(prime.next)
+#concatenation operator <<
+ n.times {prime_array << (prime.next)}
+ 
+#do ,,end or {}
+# ! =dangerous , it mutates the original array instead of creating a new one.
+
+def block_test             
+  puts "We're in the method!"                    #1
+  puts "Yielding to the block..."                #2
+  yield
+  puts "We're back in the method!"               #4
+end
+block_test { puts ">>> We're in the block!" }    #3
+
+
+def yield_name(name)
+  puts "In the method! Let's yield."
+  yield("Kim")
+  puts "In between the yields!"
+  yield(name)
+  puts "Block complete! Back in the method."
+end
+yield_name("Eric") { |n| puts "My name is #{n}." }
+
+def double(number)                                 #Define your own method, double,
+    yield(number)                                  #That accepts a single parameter and yields to a block.
+end
+double(4) {|x|puts  x*2}                           #Then call it with a block that multiplies the number parameter by a number
