@@ -77,7 +77,7 @@ def block_test
 end
 block_test { puts ">>> We're in the block!" }    #3
 
-
+#block, cant not be rewrite lesson block.1 
 def yield_name(name)
   puts "In the method! Let's yield."
   yield("Kim")
@@ -87,7 +87,35 @@ def yield_name(name)
 end
 yield_name("Eric") { |n| puts "My name is #{n}." }
 
+#block 
 def double(number)                                 #Define your own method, double,
     yield(number)                                  #That accepts a single parameter and yields to a block.
 end
 double(4) {|x|puts  x*2}                           #Then call it with a block that multiplies the number parameter by a number
+
+#procs
+multiples_of_3 = Proc.new do |n|
+  n % 3 == 0
+end
+
+(1..100).to_a.select(&multiples_of_3)              #& is used to convert the cube proc into a block
+
+floats = [1.2, 3.45, 0.91, 7.727, 11.42, 482.911]
+
+round_down= Proc.new do |n|
+    n.to_i                                         #round to interger .to_i
+end
+ints = floats.collect(&round_down)
+
+def greeter                         #define a block 
+    yield
+end
+phrase= Proc.new do                 #define a Proc
+    puts "Hello there!"
+end
+greeter(&phrase)                    #call the proc, Pass this to greeter and change block to proc #phrase
+
+hi= Proc.new do 
+    puts "Hello!"
+end
+hi.call                             #call proc
