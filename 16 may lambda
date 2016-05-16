@@ -9,4 +9,26 @@ symbols = my_array.select(&symbol_filter)
 my_array= ["system",9, 90,:system]
 are_ints= lambda {|x| x.is_a? Integer}                 #are_ints are not an array here 
 ints= my_array.select(&are_ints)                       #ints is a array here  
-                                                      # &are_ints= symbolise lambda here 
+                                                       # &are_ints= symbolise lambda here 
+
+ages = [23, 101, 7, 104, 11, 94, 100, 121, 101, 70, 44]
+under_100= Proc.new do |n|                             #1
+    n <100
+end 
+youngsters= ages.select(&under_100)
+
+crew = {
+  captain: "Picard",
+  first_officer: "Riker",
+  lt_cdr: "Data",
+  lt: "Worf",
+  ensign: "Ro",
+  counselor: "Troi",
+  chief_engineer: "LaForge",
+  doctor: "Crusher"
+}
+
+first_half= lambda { |key, value| value <"M" }         # check alphabet sequence "M"
+                                                       # create a lambda 
+
+a_to_m= crew.select(&first_half)                       # new variable, calling crew to select, passing through lambda first_half
