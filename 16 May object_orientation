@@ -1,0 +1,134 @@
+class Language
+  def initialize(name, creator)
+    @name = name                                               #whenever it creates a Person, it has to have a name
+    @creator = creator
+  end
+	
+  def description
+    puts "I'm #{@name} and I was created by #{@creator}"
+  end
+end
+
+ruby = Language.new("Ruby", "Yukihiro Matsumoto")               # new variable ruby calling .new to language passing though class  
+python = Language.new("Python", "Guido van Rossum")
+javascript = Language.new("JavaScript", "Brendan Eich")
+
+ruby.description
+python.description
+javascript.description
+
+#scopes
+#$, @, or @@? : global, instance, and class variables 
+
+#use of scope 
+class Person
+  @@people_count= 0
+  def initialize(name)                                       #1st define 
+     @name = name
+    @@people_count += 1
+  end
+  def self.number_of_instances                               #2nd define 
+    return @@people_count 
+  end
+end
+matz = Person.new("Yukihiro")
+dhh = Person.new("David")
+puts "Number of Person instances: #{Person.number_of_instances}"
+
+
+def create_record(attributes, raise_error = false)
+  record = build_record(attributes)
+  yield(record) if block_given?
+  saved = record.save
+  set_new_record(record)
+  raise RecordInvalid.new(record) if !saved && raise_error
+  record
+end
+#Inheritance
+class ApplicationError
+  def display_error
+    puts "Error! Error!"
+  end
+end
+class SuperBadError < ApplicationError               #class DerivedClass < BaseClass :"<" as "inherits from."
+end
+err = SuperBadError.new
+err.display_error
+
+#override the base class method(def) by asserting a new method(def) in the derived class 
+class Creature
+  def initialize(name)
+    @name = name
+  end
+  def fight
+    return "Punch to the chops!"                     #base class method 
+  end
+end
+class Dragon < Creature
+    def fight                                        #override 
+        return "Breathes fire!"
+    end
+end
+
+#ruby, allow only one parent to inherite from 
+class Creature
+  def initialize(name)
+    @name = name
+  end
+end
+class Person
+  def initialize(name)
+    @name = name
+  end
+end
+class Dragon < Creature; end
+class Dragon < Person; end                     
+#are @instances where you want to incorporate data or behavior from several @@classes into a single class,
+
+#17 in class 
+class Message
+    @@messages_sent = 0
+    def initialize(from, to)
+        @from = from 
+        @to= to 
+        @@messages_sent +=1
+    end
+end
+#added description try to print out the class < symbols, so it cannot be print out by puts 
+class Message
+    @@messages_sent = 0
+    def initialize(from, to)
+        @from = from 
+        @to= to 
+        @@messages_sent +=1
+    end
+     def description
+    puts "Form #{@from} to #{@to}"
+  end
+end
+my_message =Message.new("sean", "john")
+my_message.description
+
+#another example 
+class Message
+    @@msgs_sent = 0
+    def initialize(from, to)
+        @from = from
+        @to = to
+        @@msgs_sent += 1
+    end
+    def self.nr_of_msgs
+        @@msgs_sent
+    end 
+end
+
+my_message = Message.new("Ruby", "Jane")
+emails << my_message
+my_message = Message.new("Richard", "Tim")
+emails << my_message
+my_message = Message.new("John", "Anna")
+emails << my_message
+
+puts "#{Message.nr_of_msgs} messages were sent!"
+
+emails.each { |from, to| puts "From: #{from}" }`
