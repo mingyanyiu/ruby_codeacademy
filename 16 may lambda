@@ -1,0 +1,12 @@
+
+#lambda 
+my_array = ["raindrops", :kettles, "whiskers", :mittens, :packages]
+symbol_filter = lambda {|x| x.is_a? Symbol}
+
+# Add your code below!
+symbols = my_array.select(&symbol_filter)
+
+my_array= ["system",9, 90,:system]
+are_ints= lambda {|x| x.is_a? Integer}                 #are_ints are not an array here 
+ints= my_array.select(&are_ints)                       #ints is a array here  
+                                                      # &are_ints= symbolise lambda here 
