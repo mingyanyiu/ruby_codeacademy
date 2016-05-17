@@ -1,0 +1,4 @@
+#How to run ruby on rails 
+#$ rails new MySite
+#$ bundle install
+#$ rails server
