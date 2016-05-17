@@ -1,0 +1,51 @@
+#remember to end your method
+class Person
+  def initialize(name, age)                            #class method, public by default in Ruby
+     @name = name
+    @age = age
+  end
+  
+  public                                            # This method can be called from outside the class.
+  
+  def about_me
+    puts "I'm #{@name} and I'm #{@age} years old!"
+  end
+  
+  private                          # This method can't!;can only call these methods from other code inside the object
+  
+  def bank_account_number
+    @account_number = 12345
+    puts "My bank account number is #{@account_number}."
+  end
+end
+
+eric.bank_account_number
+#
+class Person
+  attr_reader :name                 #access a variable
+  attr_writer :name                 #change a variable 
+  def initialize(name)
+    @name = name
+  end
+end
+
+#access or change an intance more easy
+class Person 
+def initialize(name, job)
+   @name= name                   #delete 
+   @job= job                     #delete
+  def name                      #delete
+    @name                         
+  end                              
+  def job=(new_job)                #delete
+    @job = new_job
+  end
+end
+
+class Person
+    attr_reader :name
+    attr_writer :name 
+    attr_accessor :job                                 #:>nospace to job
+  def initialize(name, job)
+  end
+end
