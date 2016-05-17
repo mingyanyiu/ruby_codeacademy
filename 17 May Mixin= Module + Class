@@ -1,0 +1,42 @@
+#include module to instance level 
+module Action
+  def jump
+    @distance = rand(4) + 2
+    puts "I jumped forward #{@distance} feet!"
+  end
+end
+
+class Rabbit
+  include Action                           #call include 
+  attr_reader :name
+  def initialize(name)
+    @name = name
+  end
+end
+
+class Cricket
+  include Action                           #class include
+  attr_reader :name               
+  def initialize(name)
+    @name = name
+  end
+end
+TheHereAnd.now
+peter.jump
+jiminy.jump
+
+peter = Rabbit.new("Peter")
+jiminy = Cricket.new("Jiminy")
+
+#extent module to class level that 
+module ThePresent
+  def now
+    puts "It's #{Time.new.hour > 12 ? Time.new.hour - 12 : Time.new.hour}:#{Time.new.min} #{Time.new.hour > 12 ? 'PM' : 'AM'} (GMT)."
+  end
+end
+class TheHereAnd 
+  extend ThePresent                      #extent instance to class level
+end
+
+
+# @instance, @@class variable, $gobal variable 
