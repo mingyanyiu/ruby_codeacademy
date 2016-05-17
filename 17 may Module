@@ -1,0 +1,37 @@
+#module is default in the Rudy language
+module Circle
+  PI = 3.141592653589793
+  
+  def Circle.area(radius)
+    PI * radius**2
+  end
+  def Circle.circumference(radius)
+    2 * PI * radius
+  end
+end
+
+#namespacing = ::
+#scope resolution operatorsay 
+#Math::PI, Ruby knows to look inside the Math module to get that PI, not any other PI (such as the one we created in Circle
+
+#some module need explicitly brought in
+require "date"
+puts Date.today
+
+#include certain module for the entire Class 
+class Angle
+  include Math                                  #inculded Math module 
+  attr_accessor :radians
+  
+  def initialize(radians)
+    @radians = radians
+  end
+  
+  def cosine
+    cos(@radians)                               # Math::cos  > cos  
+  end
+end
+
+acute = Angle.new(1)
+acute.cosine
+
